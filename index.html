@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="岩間合氣道道場官方網站｜體術・劍・杖一體的修練" />
+  <title>岩間合氣道｜Iwama Aikido</title>
+  <style>
+    :root{
+      --ink:#171717;
+      --paper:#f4f0e8;
+      --paper2:#ebe4d8;
+      --accent:#7b2d26;
+      --muted:#6e6a63;
+      --line:rgba(23,23,23,.14);
+      --white:#fffdf8;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.75;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1120px,92%);margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(244,240,232,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;font-weight:700}
+    .mon{
+      width:42px;height:42px;border:2px solid var(--ink);border-radius:50%;
+      display:grid;place-items:center;font-family:serif;font-size:18px;
+    }
+    .brand small{display:block;color:var(--muted);font-weight:500;letter-spacing:.12em}
+    .menu{display:flex;gap:24px;font-size:14px}
+    .menu a:hover{color:var(--accent)}
+    .hero{
+      min-height:78vh;display:grid;place-items:center;
+      background:
+        linear-gradient(rgba(15,15,15,.50),rgba(15,15,15,.66)),
+        radial-gradient(circle at 30% 20%,#9e968a 0%,#615b54 36%,#2d2a27 100%);
+      color:white;position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:"合氣道";
+      position:absolute;right:4%;top:8%;
+      writing-mode:vertical-rl;
+      font-family:serif;font-size:clamp(80px,14vw,180px);
+      letter-spacing:.08em;opacity:.07;
+    }
+    .hero-content{width:min(920px,90%);padding:80px 0}
+    .eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:13px;opacity:.78}
+    h1{
+      margin:.2em 0 .1em;font-family:serif;
+      font-size:clamp(52px,10vw,120px);font-weight:500;line-height:1;
+      letter-spacing:.08em;
+    }
+    .hero h2{font-weight:500;font-size:clamp(22px,4vw,38px);margin:20px 0 8px}
+    .hero p{max-width:650px;color:rgba(255,255,255,.83);font-size:18px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 24px;border:1px solid transparent;
+      transition:.2s;font-weight:700;
+    }
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.ghost{border-color:rgba(255,255,255,.6);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    section{padding:90px 0}
+    .section-head{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:44px}
+    .section-head h3{margin:0;font-size:14px;letter-spacing:.25em;color:var(--accent)}
+    .section-head h2{margin:0;font-family:serif;font-size:clamp(32px,5vw,56px);font-weight:500}
+    .lead{font-size:20px;color:#37332f}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{
+      background:rgba(255,253,248,.72);border:1px solid var(--line);
+      padding:30px;min-height:240px;
+    }
+    .card .num{font-family:serif;font-size:56px;color:var(--accent);opacity:.8}
+    .card h4{font-size:24px;margin:8px 0}
+    .card p{color:var(--muted)}
+    .dark{background:#1c1b19;color:#f3eee4}
+    .dark .section-head h3{color:#d17a70}
+    .dark .card{background:#252320;border-color:rgba(255,255,255,.12)}
+    .dark .card p{color:#c7c0b5}
+    .schedule{
+      width:100%;border-collapse:collapse;background:var(--white);
+      border:1px solid var(--line)
+    }
+    .schedule th,.schedule td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+    .schedule th{background:var(--paper2);font-size:14px;letter-spacing:.08em}
+    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .news article{border-top:2px solid var(--ink);padding-top:16px}
+    .date{font-size:13px;color:var(--muted);letter-spacing:.08em}
+    .news h4{font-size:20px;margin:8px 0}
+    .contact{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:stretch
+    }
+    .contact-box{background:var(--accent);color:white;padding:42px}
+    .contact-box h2{font-family:serif;font-size:44px;font-weight:500;margin-top:0}
+    .map{
+      min-height:360px;background:
+      linear-gradient(135deg,#d8d0c4,#eee8dd);
+      display:grid;place-items:center;border:1px solid var(--line);color:var(--muted)
+    }
+    footer{padding:34px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+    .mobile-menu{display:none}
+    @media(max-width:800px){
+      .menu{display:none}
+      .section-head{grid-template-columns:1fr;gap:12px}
+      .grid3,.news,.contact{grid-template-columns:1fr}
+      section{padding:68px 0}
+      .hero{min-height:72vh}
+      .schedule{font-size:14px}
+      .schedule th,.schedule td{padding:14px 12px}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <div class="mon">岩</div>
+      <div>
+        岩間合氣道
+        <small>IWAMA AIKIDO</small>
+      </div>
+    </a>
+    <div class="menu">
+      <a href="#about">關於</a>
+      <a href="#training">修練內容</a>
+      <a href="#schedule">課程時間</a>
+      <a href="#news">活動消息</a>
+      <a href="#contact">聯絡我們</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Traditional Budo · Tai Jutsu · Ken · Jo</div>
+    <h1>岩間合氣道</h1>
+    <h2>體術・劍・杖，一體的修練</h2>
+    <p>
+      重視基本、理合與反覆鍛鍊，透過體術與武器技法的相互印證，
+      培養穩定的中心、距離感、時機與身體運用。
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">預約體驗</a>
+      <a class="btn ghost" href="#schedule">查看課表</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h3>ABOUT</h3>
+        <div>
+          <h2>從基本開始，建立可靠的身體與技法。</h2>
+          <p class="lead">
+            岩間系統的訓練強調體術與武器的關聯性。透過清楚的基本動作、
+            站位、距離與角度，逐步理解合氣道技法背後的原理。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="training" class="dark">
+    <div class="wrap">
+      <div class="section-head">
+        <h3>TRAINING</h3>
+        <div><h2>三個核心訓練面向</h2></div>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <div class="num">01</div>
+          <h4>體術</h4>
+          <p>從基本身法、受身、固技與投技開始，建立中心、平衡與正確的身體結構。</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h4>劍術</h4>
+          <p>透過素振、組太刀與距離練習，理解合氣道中的方向、中心線與入身概念。</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h4>杖術</h4>
+          <p>藉由杖的基本、型與組杖訓練節奏、轉換、距離，以及全身協調。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="wrap">
+      <div class="section-head">
+        <h3>SCHEDULE</h3>
+        <div><h2>課程時間</h2></div>
+      </div>
+
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>星期</th>
+            <th>時間</th>
+            <th>內容</th>
+            <th>適合對象</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>週二</td>
+            <td>19:30–21:00</td>
+            <td>體術基本</td>
+            <td>初學者 / 一般會員</td>
+          </tr>
+          <tr>
+            <td>週四</td>
+            <td>19:30–21:00</td>
+            <td>體術・武器</td>
+            <td>一般會員</td>
+          </tr>
+          <tr>
+            <td>週六</td>
+            <td>10:00–12:00</td>
+            <td>劍・杖</td>
+            <td>初學者 / 一般會員</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);margin-top:14px">※ 以上為示範課表，可替換成你的實際上課時間。</p>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="wrap">
+      <div class="section-head">
+        <h3>NEWS</h3>
+        <div><h2>活動與最新消息</h2></div>
+      </div>
+      <div class="news">
+        <article>
+          <div class="date">2026.10</div>
+          <h4>新生體驗課開放預約</h4>
+          <p>歡迎沒有武術經驗的朋友參加，請穿著方便活動的服裝。</p>
+        </article>
+        <article>
+          <div class="date">2026.11</div>
+          <h4>武器基礎講習</h4>
+          <p>從劍與杖的基本持法、素振與步法開始，建立安全且穩定的基礎。</p>
+        </article>
+        <article>
+          <div class="date">COMING SOON</div>
+          <h4>年度交流稽古</h4>
+          <p>活動資訊將於官網與社群平台公告。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="contact-box">
+        <h2>第一次來道場？</h2>
+        <p>
+          初學者不需要武術經驗。歡迎先預約參觀或體驗課，
+          我們會介紹基本禮法、受身方式與課程進行方式。
+        </p>
+        <p><strong>道場：</strong>請填入你的道場名稱</p>
+        <p><strong>地址：</strong>請填入你的道場地址</p>
+        <p><strong>LINE：</strong>@your-line-id</p>
+        <p><strong>Email：</strong>contact@example.com</p>
+        <div class="cta-row">
+          <a class="btn ghost" href="mailto:contact@example.com">聯絡道場</a>
+        </div>
+      </div>
+      <div class="map">
+        Google Maps 地圖可放在這裡
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 岩間合氣道道場 · Iwama Aikido. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
